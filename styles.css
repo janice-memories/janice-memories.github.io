@@ -23,6 +23,7 @@ hr {
 .center-box {
     width: 80%; /* Adjust width as needed */
     max-width: 600px; /* Maximum width of the box */
+    min-width: 420px;
     height: auto; /* Height adjusts based on content */
     background: linear-gradient(to bottom, #30d6ac, #3633d0); /* Brighter gradient */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 3D effect */
