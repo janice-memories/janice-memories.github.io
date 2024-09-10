@@ -1,0 +1,152 @@
+/* Container styling for all typing lines */
+body {
+    background: linear-gradient(to bottom, #008F6C, #1B18AF);
+    background-repeat: no-repeat; /* Prevents the gradient from repeating */
+    background-size: cover; /* Ensures the gradient covers the entire background */
+    margin: 0; /* Removes default margin for full background coverage */
+    height: 100vh; /* Ensures the body takes up the full viewport height */
+    display: flex; /* Center the box horizontally and vertically */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    color: white;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #dddddd, transparent);
+    margin: 20px 0;
+    animation: growWidth 2s ease-in-out;
+}
+
+/* Centered box styling */
+.center-box {
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Maximum width of the box */
+    height: auto; /* Height adjusts based on content */
+    background: linear-gradient(to bottom, #30d6ac, #3633d0); /* Brighter gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 3D effect */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    box-sizing: border-box; /* Includes padding in the width/height calculations */
+    display: flex; /* Flexbox to center content inside the box */
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center content horizontally inside the box */
+    justify-content: space-between; /* Distribute space between children, pushing footer to the bottom */
+    position: relative; /* For positioning the footer */
+    overflow: hidden; /* Hide any overflow content */
+}
+
+/* Typing container styling */
+.typing-container {
+    font-family: "Playfair Display", serif;
+    overflow: hidden; /* Hides overflow text */
+    position: relative; /* To position the cursor */
+    width: 100%; /* Full width of the parent box */
+}
+
+/* Title styling */
+.title {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Typing line effect */
+.typing-line {
+    display: block; /* Makes each line a block element */
+    white-space: nowrap;
+    overflow: hidden; /* Hides overflowing text */
+    width: 0; /* Starts with a width of 0 */
+    animation: typing 4s steps(40, end) forwards;
+    margin-bottom: 1em; /* Space between lines */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blinking animation */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+
+/* Apply cursor blinking animation to the container */
+.typing-container::after {
+    content: ''; /* Empty content for cursor */
+    position: absolute;
+    right: 0; /* Position cursor at the end of the line */
+    top: 0; /* Align with the text */
+    height: 100%; /* Full height of the line */
+    width: 0.15em; /* Cursor width */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Hide cursor after typing animation */
+.typing-line:last-of-type::after {
+    display: none; /* Hide cursor for the last line */
+}
+
+.typing-line:nth-of-type(2) {
+    animation-delay: 0s; /* Delay for the second line to start after the first finishes */
+}
+
+.typing-line:nth-of-type(3) {
+    animation-delay: 1s; /* Delay for the third line to start after the second finishes */
+}
+
+.typing-line:nth-of-type(4){
+    animation-delay: 4s;
+}
+
+.typing-line:nth-of-type(5){
+    animation-delay: 8s;
+}
+
+.typing-line:nth-of-type(6){
+    animation-delay: 11s;
+}
+
+.typing-line:nth-of-type(7){
+    animation-delay: 14s;
+}
+
+.footer {
+    width: 100%; /* Full width */
+    text-align: center; /* Center button horizontally */
+    margin-top: 20px; /* Space above the button */
+}
+
+button {
+    background-color: #007BFF; /* Blue color */
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Message styling */
+.message {
+    display: none; /* Hide message by default */
+    margin-top: 10px;
+    font-size: 18px;
+    color: white; /* Dark text color */
+}
